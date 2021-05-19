@@ -1,0 +1,25 @@
+.card {
+   position: absolute;
+   margin: 0 2px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 150px;
+   height: 100%;
+   opacity: 0.5;
+   transition:  1s ease;
+   z-index: 1;
+   float: left;
+}
+
+.card.active {
+   position: absolute;
+   z-index: 5;
+   opacity: 1;
+   transform: scale(1.08);
+}
+
+img {
+   max-width: 100%;
+}

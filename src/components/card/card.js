@@ -1,37 +1,43 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 import './card.css'
 
-const Card = ({color, id, changeCard, curCard, length}) => {
-   const setStyle = () => {
-      switch(true) {
-         case id < curCard :
-            return 'card left'
-         case id > curCard :
-            return 'card right'
-         case id === curCard :
-            return 'card active'
-      }
-   }
-   const setPosition = () => {
-      switch (true) {
-         case id < curCard || id > curCard :
-            return `translate(${(id - curCard) * 150}px,0)`
-      }
-   }
-   const style = {
-      backgroundColor:color,
-      transform: setPosition()
+class Card extends Component {
+   myRef = React.createRef()
+
+   componentDidMount() {
+      
    }
 
-   return (
-      <div className={setStyle()}
+   render() {
+      const { el, changeCard, curCard, length } = this.props
+      const { id, color, width, height } = el
+
+      const setStyle = () => {
+         switch (true) {
+            case id != curCard:
+               return 'card '
+            case id === curCard:
+               return 'card active'
+         }
+      }
+
+      const style = {
+         backgroundColor: color,
+         width: width + 'px',
+         height: height + 'px',
+      }
+
+      return (
+         <div className={setStyle()}
+            ref={this.myRef}
             onClick={() => changeCard(id)}
             style={style}>
-         <h2>Index {id}</h2>
-         <h2>{(id - curCard)*150}</h2>
-      </div>
-   )
+            <h2>Index {id}</h2>
+            <h2>{width}, {height}</h2>
+         </div>
+      )
+   }
 }
 
 export default Card

@@ -1,23 +1,19 @@
 .card {
-   position: absolute;
-   margin: 0 2px;
+   margin: 2px 2px;
    display: flex;
+   justify-content: center;
+   align-items: center;
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   width: 150px;
-   height: 100%;
-   opacity: 0.5;
    transition:  1s ease;
    z-index: 1;
-   float: left;
+   opacity: 0.6
 }
 
 .card.active {
-   position: absolute;
-   z-index: 5;
    opacity: 1;
-   transform: scale(1.08);
+   transform: scale(1.01);
 }
 
 img {
